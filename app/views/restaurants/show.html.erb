@@ -1,0 +1,26 @@
+<h2>Here is some information about your favorite restaurant</h2>
+
+<p><%=@restaurant.name%></p>
+<p><%=@restaurant.address%></p>
+<p><%=@restaurant.phone_number%></p>
+<p><%=@restaurant.category%></p>
+
+<%= link_to "Back to the main page", restaurants_path(@restaurant) %>
+<%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %>
+<%= link_to "Delete this restaurant", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete this restaurant"}%>
+
+<%= link_to "Create new restaurant", new_restaurant_path(@restaurant) %>
+<%= link_to "Create a review", new_restaurant_review_path(@restaurant)%>
+
+
+<%@restaurant.reviews.each do |review| %>
+  <ul>
+  <li>
+    <%= review.content%>
+  </li>
+  <li>
+    <%= review.stars%>
+  </li>
+<% end %>
+</ul>
+

@@ -1,0 +1,17 @@
+<h2>Create your review</h2>
+
+<%= form_for @review, url: {action: "create"} do |f| %>
+<ul>
+<li>
+<%= f.label :content %>
+  <%= f.text_field :content %>
+</li>
+  <li>
+  <%= f.label :stars %>
+  <%= f.text_field :stars %>
+  </li>
+
+  <%= f.submit "add a review" %>
+
+  </ul>
+<% end %>
